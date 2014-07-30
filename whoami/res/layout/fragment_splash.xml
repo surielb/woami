@@ -13,9 +13,9 @@
             android:textStyle="bold"
             android:layout_margin="10dip"
             android:layout_gravity="center"
-               android:layout_width="200dip"
-               android:background="@drawable/radial"
-               android:layout_height="200dip"/>
+            android:layout_width="200dip"
+            android:background="@drawable/radial"
+            android:layout_height="200dip"/>
     <com.facebook.widget.LoginButton android:layout_height="wrap_content"
                                      android:layout_width="wrap_content"
                                      android:layout_gravity="center"/>

@@ -9,8 +9,8 @@ import com.facebook.Session.*;
 import com.facebook.model.*;
 
 /**
- * Created with IntelliJ IDEA. User: Suriel Date: 7/30/14 Time: 10:55 PM To change this template use File | Settings |
- * File Templates.
+ * Base fragment for using a logged in user.
+ * handles facebook lifecycle and exposes the logged in user
  */
 public abstract class FacebookFragment extends Fragment {
     private final StatusCallback callback = new StatusCallback() {
@@ -85,8 +85,12 @@ public abstract class FacebookFragment extends Fragment {
         return Session.getActiveSession();
     }
 
+    /**
+     * helper function to retrieve the current logged in user's info
+     */
     private void fetchUserInfo() {
         final Session currentSession = getSession();
+        //test if the session is opened and that we have not already retrieved the info for this session
         if (currentSession != null && currentSession.isOpened()) {
             if (currentSession != userInfoSession) {
                 Request request = Request.newMeRequest(currentSession, new Request.GraphUserCallback() {
@@ -110,8 +114,15 @@ public abstract class FacebookFragment extends Fragment {
         }
     }
 
+    /**
+     * called when the ui should be updated (new user etc.)
+     */
     protected abstract void updateUI();
 
+    /**
+     * returns the current logged in user
+     * @return
+     */
     public GraphUser getUser() {
         return user;
     }

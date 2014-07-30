@@ -6,8 +6,7 @@ import android.view.*;
 import com.gaya.whoami.R.*;
 
 /**
- * Created with IntelliJ IDEA. User: Suriel Date: 7/30/14 Time: 9:17 PM To change this template use File | Settings |
- * File Templates.
+ * Noting fancy, just a login button. MainActivity handles the transition
  */
 public class SplashFragment extends Fragment {
     @Override

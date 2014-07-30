@@ -9,8 +9,7 @@ import com.gaya.whoami.*;
 import com.gaya.whoami.R.*;
 
 /**
- * Created with IntelliJ IDEA. User: Suriel Date: 7/30/14 Time: 9:44 PM To change this template use File | Settings |
- * File Templates.
+ * here is where te application logic starts
  */
 public class WelcomeFragment extends FacebookFragment {
 
@@ -44,6 +43,7 @@ public class WelcomeFragment extends FacebookFragment {
     protected void updateUI() {
         if (!isAdded())
             return;
+        //update user info
         GraphUser user = getUser();
         if (user != null) {
             profilePictureView.setProfileId(user.getId());

@@ -15,60 +15,32 @@ import com.gaya.whoami.fragments.*;
 
 import java.security.*;
 
+/**
+ * Our main activity tat handles the basic user login and fragment flow
+ * Fragments are defined in Fragments
+ * @see com.gaya.whoami.fragments.Fragments
+ */
 public class MainActivity extends FragmentActivity {
 
-    private UiLifecycleHelper uiHelper;
-    private boolean isResumed;
+    private UiLifecycleHelper uiHelper;//fb ui lifecycle helper
+    private boolean isResumed;//fb login state helper
+
     private final StatusCallback statusCallback = new StatusCallback() {
         @Override
         public void call(Session session, SessionState state, Exception exception) {
             onSessionChanged(session, state, exception);
         }
-    };
+    };//callback used by fb to notify us when the user's login session has changed
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case id.settings:
-                showFragment(FragmentsEnum.SETTINGS, true);
+                //when the settings action bar action is pressed, show the the fb user options
+                showFragment(Fragments.SETTINGS, true);
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-
-    private void onSessionChanged(Session session, SessionState state, Exception exception) {
-        if (isResumed) {
-            FragmentManager manager = getSupportFragmentManager();
-            int backStackSize = manager.getBackStackEntryCount();
-            for (int i = 0; i < backStackSize; i++) {
-                manager.popBackStack();
-            }
-            // check for the OPENED state instead of session.isOpened() since for the
-            // OPENED_TOKEN_UPDATED state, the selection fragment should already be showing.
-            if (state.equals(SessionState.OPENED)) {
-                showFragment(FragmentsEnum.WELCOME, false);
-            } else if (state.isClosed()) {
-                showFragment(FragmentsEnum.SPLAH, false);
-            }
-        }
-
-        boolean isSplash = getSupportFragmentManager().findFragmentById(id.fragment_container) instanceof SplashFragment;
-        if (session != null && session.isOpened()) {
-            if (isSplash) {
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(id.fragment_container, FragmentsEnum.WELCOME.get(this), "Welcome")
-                        .commit();
-            }
-        } else {
-            if (!isSplash) {
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(id.fragment_container, FragmentsEnum.SPLAH.get(this), "Splash")
-                        .commit();
-            }
-        }
     }
 
     /**
@@ -128,15 +100,41 @@ public class MainActivity extends FragmentActivity {
 
         if (session != null && session.isOpened()) {
             // if the session is already open, try to show the selection fragment
-            showFragment(FragmentsEnum.WELCOME, false);
+            showFragment(Fragments.WELCOME, false);
 
         } else {
             // otherwise present the splash screen and ask the user to login, unless the user explicitly skipped.
-            showFragment(FragmentsEnum.SPLAH, false);
+            showFragment(Fragments.SPLAH, false);
         }
     }
 
-    void showFragment(FragmentsEnum fragment, boolean addToBackStack) {
+    /**
+     * This is called when the facebook session is modified (login/logout) and we decide if to show the
+     * main fragment or the splash
+     */
+    private void onSessionChanged(Session session, SessionState state, Exception exception) {
+        if (isResumed) {
+            FragmentManager manager = getSupportFragmentManager();
+            int backStackSize = manager.getBackStackEntryCount();
+            for (int i = 0; i < backStackSize; i++) {
+                manager.popBackStack();
+            }
+            // check for the OPENED state instead of session.isOpened() since for the
+            // OPENED_TOKEN_UPDATED state, the welcome fragment should already be showing.
+            if (state.equals(SessionState.OPENED)) {
+                showFragment(Fragments.WELCOME, false);
+            } else if (state.isClosed()) {
+                showFragment(Fragments.SPLAH, false);
+            }
+        }
+    }
+
+    /**
+     * helper function to display the given fragment
+     * @param fragment the fragment to display
+     * @param addToBackStack should this fragment be added to the BackStack
+     */
+    protected void showFragment(Fragments fragment, boolean addToBackStack) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction()
                 .replace(id.fragment_container, fragment.get(this));
         if (addToBackStack)
@@ -144,6 +142,9 @@ public class MainActivity extends FragmentActivity {
         transaction.commit();
     }
 
+    /**
+     * Helper function to print the sha1 key of the build to help register a new key with fb
+     */
     void printKeyHash() {
         try {
             PackageInfo info = getPackageManager().getPackageInfo(
