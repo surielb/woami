@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main">#ffdddddd</color>
+
+    <color name="main_old">#ff82c669</color>
+    <color name="ab_background">#ff5e9650</color>
+</resources>
