@@ -37,6 +37,7 @@ public class MainActivity extends FragmentActivity {
         switch (item.getItemId()) {
             case id.settings:
                 //when the settings action bar action is pressed, show the the fb user options
+
                 showFragment(Fragments.SETTINGS, true);
                 return true;
         }
@@ -127,6 +128,8 @@ public class MainActivity extends FragmentActivity {
                 showFragment(Fragments.SPLAH, false);
             }
         }
+
+
     }
 
     /**
