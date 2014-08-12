@@ -8,6 +8,7 @@ import android.os.*;
 import android.support.v4.app.*;
 import android.util.*;
 import android.view.*;
+import android.widget.EditText;
 import com.facebook.*;
 import com.facebook.Session.*;
 import com.gaya.whoami.R.*;
@@ -22,6 +23,8 @@ import java.security.*;
  */
 public class MainActivity extends FragmentActivity {
 
+    public GameSettings gameSettings;
+    private SplashFragment splashFragment;
     private UiLifecycleHelper uiHelper;//fb ui lifecycle helper
     private boolean isResumed;//fb login state helper
 
@@ -54,6 +57,8 @@ public class MainActivity extends FragmentActivity {
         uiHelper.onCreate(savedInstanceState);
         printKeyHash();
         setContentView(R.layout.main);
+
+        gameSettings = new GameSettings();
     }
 
     @Override
@@ -98,15 +103,16 @@ public class MainActivity extends FragmentActivity {
     protected void onResumeFragments() {
         super.onResumeFragments();
         Session session = Session.getActiveSession();
-
+        showFragment(Fragments.SPLAH, false);
         if (session != null && session.isOpened()) {
             // if the session is already open, try to show the selection fragment
-            showFragment(Fragments.WELCOME, false);
+            showFragment(Fragments.CREATEGAME, false);
 
         } else {
             // otherwise present the splash screen and ask the user to login, unless the user explicitly skipped.
-            showFragment(Fragments.SPLAH, false);
+            showFragment(Fragments.CREATEGAME, false);
         }
+
     }
 
     /**
@@ -122,10 +128,11 @@ public class MainActivity extends FragmentActivity {
             }
             // check for the OPENED state instead of session.isOpened() since for the
             // OPENED_TOKEN_UPDATED state, the welcome fragment should already be showing.
+            //showFragment(Fragments.SPLAH, false);
             if (state.equals(SessionState.OPENED)) {
-                showFragment(Fragments.WELCOME, false);
+                showFragment(Fragments.CREATEGAME, false);
             } else if (state.isClosed()) {
-                showFragment(Fragments.SPLAH, false);
+                showFragment(Fragments.CREATEGAME, false);
             }
         }
 
@@ -137,7 +144,7 @@ public class MainActivity extends FragmentActivity {
      * @param fragment the fragment to display
      * @param addToBackStack should this fragment be added to the BackStack
      */
-    protected void showFragment(Fragments fragment, boolean addToBackStack) {
+    public void showFragment(Fragments fragment, boolean addToBackStack) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction()
                 .replace(id.fragment_container, fragment.get(this));
         if (addToBackStack)
@@ -164,6 +171,8 @@ public class MainActivity extends FragmentActivity {
 
         }
     }
+        public void createGame(View view){
 
+        }
 
 }

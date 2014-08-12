@@ -3,4 +3,7 @@
     <string name="app_name">Who am I?</string>
     <string name="app_id">261023887420293</string>
     <string name="welcome">Welcome %1$s</string>
+    <string name="button_create_game">Create Game</string>
+    <string name="button_join_game">Join Game</string>
+    <string name="set_time">Set Time</string>
 </resources>

@@ -10,6 +10,10 @@ import java.util.*;
  * Helper enum that holds a singleton fragment for each activity
  */
 public enum Fragments {
+    STARTGAME(StartGameFragmant.class),
+
+    CREATEGAME(CreateGameFragment.class),
+
     /**
      * The splash (login) screen
      */

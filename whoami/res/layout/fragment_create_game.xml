@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+
+<LinearLayout
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:gravity="center"
+              android:layout_height="wrap_content">
+
+    <NumberPicker
+            android:spinnerMode="dropdown"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:id="@+id/timeh"/>
+
+    <NumberPicker
+            android:spinnerMode="dropdown"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:id="@+id/timem"/>
+
+    <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:textSize="30sp"
+              android:text="בחר זמן"/>
+
+</LinearLayout>
+
+
+     <EditText
+             android:id="@+id/quest1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:layout_margin="25dp"
+                android:text="בחר שאלה"/>
+
+    <EditText
+            android:id="@+id/quest2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:layout_margin="25dp"
+            android:text="בחר שאלה"/>
+
+    <EditText
+            android:id="@+id/quest3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:layout_margin="25dp"
+            android:text="בחר שאלה"/>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/BtnCreateGame"
+            android:text="צור משחק"/>
+
+</LinearLayout>
