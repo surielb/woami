@@ -3,7 +3,7 @@
     "questions":[
         {
             "id":"Q_food",
-            "text":"Which of the following would eat this evening",
+            "title":"Which of the following would eat this evening",
             "answers":[
                 {
                     "id":1,
@@ -19,7 +19,13 @@
                     "id":3,
                     "title":"pasta",
                     "thumb":"https://cdn1.iconfinder.com/data/icons/cartoon-food/128/Food_512-25.png"
-                }
+                },
+                 {
+                    "id":4,
+                    "title":"Salad",
+                    "thumb":"http://img2.timg.co.il/forums/1_148680335.gif"
+
+                 }
             ]
         },
         {
@@ -30,7 +36,7 @@
                 {
                     "id":1,
                     "title":"Aerosmith",
-                    "thumb":"http://smithstonians.com/logos/LOGO-AEROSMITH.jpg"
+                    "thumb":"http://i181.photobucket.com/albums/x88/martin_rayados/logos%20musica/aerosmith02.png"
                 },
                 {
                         "id":2,
@@ -40,9 +46,37 @@
                 {
                      "id":3,
                      "title":"Coldplay",
-                     "thumb":"http://365dias365dibujos.wordpress.com/2012/10/01/dia-66-coldplay/"
+                     "thumb":"http://365dias365dibujos.files.wordpress.com/2012/10/final.png"
                 }
             ]
-        }
+        },
+        {
+                    "id":"Q_food2",
+                    "title":"blagh vkjhkjhgsd kjgd jd",
+                    "answers":[
+
+                        {
+                            "id":2,
+                             "title":"Sushi",
+                             "thumb":"https://cdn1.iconfinder.com/data/icons/all_google_icons_symbols_by_carlosjj-du/128/sushi.png"
+                        },
+{
+                            "id":1,
+                            "title":"Pizza",
+                            "thumb":"https://cdn1.iconfinder.com/data/icons/Iconshock-food-sigma-tiny-icons/png/128/pizza_slice_128.png"
+                        },
+                        {
+                            "id":3,
+                            "title":"pasta",
+                            "thumb":"https://cdn1.iconfinder.com/data/icons/cartoon-food/128/Food_512-25.png"
+                        },
+                         {
+                            "id":4,
+                            "title":"Salad",
+                            "thumb":"http://img2.timg.co.il/forums/1_148680335.gif"
+
+                         }
+                    ]
+                }
     ]
 }

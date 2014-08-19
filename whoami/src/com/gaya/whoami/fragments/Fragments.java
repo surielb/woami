@@ -3,6 +3,7 @@ package com.gaya.whoami.fragments;
 import android.app.*;
 import android.support.v4.app.Fragment;
 import com.facebook.widget.*;
+import com.gaya.whoami.fragments.questions.AboutMeFragment;
 
 import java.util.*;
 
@@ -25,7 +26,10 @@ public enum Fragments {
     /**
      * the settings screen
      */
-    SETTINGS(UserSettingsFragment.class);
+    SETTINGS(UserSettingsFragment.class),
+
+    ABOUT_ME(AboutMeFragment.class),
+    ;
 
     Fragments(Class<? extends Fragment> type) {
         this.type = type;

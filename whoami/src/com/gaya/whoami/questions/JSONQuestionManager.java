@@ -57,7 +57,7 @@ public abstract class JSONQuestionManager implements QuestionManager {
 
         JSONAnswer(JSONObject jsonObject) {
             imageUrl = jsonObject.optString("thumb");
-            title = jsonObject.optString("text");
+            title = jsonObject.optString("title");
             id = jsonObject.optString("id");
         }
 

@@ -16,7 +16,7 @@ import com.gaya.whoami.R.*;
 /**
  * Created by Lenovo-User on 08/08/2014.
  */
-public class CreateGameFragment  extends android.support.v4.app.Fragment {
+public class CreateGameFragment  extends FacebookFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View v = inflater.inflate(layout.fragment_create_game, container, false);
@@ -56,6 +56,11 @@ public class CreateGameFragment  extends android.support.v4.app.Fragment {
 
 
         return v;
+    }
+
+    @Override
+    protected void updateUI() {
+
     }
 }
 

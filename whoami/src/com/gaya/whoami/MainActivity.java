@@ -1,5 +1,6 @@
 package com.gaya.whoami;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.*;
 import android.content.pm.*;
 import android.content.pm.PackageManager.*;
@@ -22,6 +23,8 @@ import java.security.*;
  * @see com.gaya.whoami.fragments.Fragments
  */
 public class MainActivity extends FragmentActivity {
+
+
 
     public GameSettings gameSettings;
     private SplashFragment splashFragment;
@@ -53,6 +56,10 @@ public class MainActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Globals.init(this); //get all the statics that need a context up
+
+
         uiHelper = new UiLifecycleHelper(this, statusCallback);
         uiHelper.onCreate(savedInstanceState);
         printKeyHash();
@@ -106,11 +113,11 @@ public class MainActivity extends FragmentActivity {
         showFragment(Fragments.SPLAH, false);
         if (session != null && session.isOpened()) {
             // if the session is already open, try to show the selection fragment
-            showFragment(Fragments.CREATEGAME, false);
+            showFragment(Fragments.WELCOME, false);
 
         } else {
             // otherwise present the splash screen and ask the user to login, unless the user explicitly skipped.
-            showFragment(Fragments.CREATEGAME, false);
+            showFragment(Fragments.SPLAH, false);
         }
 
     }
@@ -130,9 +137,9 @@ public class MainActivity extends FragmentActivity {
             // OPENED_TOKEN_UPDATED state, the welcome fragment should already be showing.
             //showFragment(Fragments.SPLAH, false);
             if (state.equals(SessionState.OPENED)) {
-                showFragment(Fragments.CREATEGAME, false);
+                showFragment(Fragments.WELCOME, false);
             } else if (state.isClosed()) {
-                showFragment(Fragments.CREATEGAME, false);
+                showFragment(Fragments.SPLAH, false);
             }
         }
 
@@ -171,8 +178,7 @@ public class MainActivity extends FragmentActivity {
 
         }
     }
-        public void createGame(View view){
 
-        }
+
 
 }

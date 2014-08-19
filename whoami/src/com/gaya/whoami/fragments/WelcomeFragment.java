@@ -1,6 +1,7 @@
 package com.gaya.whoami.fragments;
 
 import android.os.*;
+import android.support.v4.app.Fragment;
 import android.view.*;
 import android.widget.*;
 import com.facebook.model.*;
@@ -37,6 +38,13 @@ public class WelcomeFragment extends FacebookFragment {
         super.onViewCreated(view, savedInstanceState);
         profileName = (TextView) view.findViewById(id.profile_name);
         profilePictureView = (ProfilePictureView) view.findViewById(id.profile_pic);
+        //ok here is where we need to select the fragment to show
+        //lets say we know nothing about you, so we ask for info
+        if (getChildFragmentManager().findFragmentById(id.fragment_container) == null)
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(id.fragment_container, Fragments.ABOUT_ME.get(getActivity()))
+                    .commit();
     }
 
 
@@ -52,5 +60,12 @@ public class WelcomeFragment extends FacebookFragment {
             profilePictureView.setProfileId(null);
             profileName.setText("Unknown");
         }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Globals.detachFragment(this);
+
     }
 }
