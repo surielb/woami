@@ -110,7 +110,6 @@ public class MainActivity extends FragmentActivity {
     protected void onResumeFragments() {
         super.onResumeFragments();
         Session session = Session.getActiveSession();
-        showFragment(Fragments.SPLAH, false);
         if (session != null && session.isOpened()) {
             // if the session is already open, try to show the selection fragment
             showFragment(Fragments.WELCOME, false);
