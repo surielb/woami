@@ -5,10 +5,7 @@ import com.gaya.whoami.JSONHelpers;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Lenovo-User on 12/08/2014.
@@ -39,14 +36,17 @@ public abstract class JSONQuestionManager implements QuestionManager {
         return questions;
     }
 
+    private final Map<Question, Answer> answerMap = new WeakHashMap<Question, Answer>();
+
     @Override
     public Answer getAnswer(Question question) {
-        return null;
+        return answerMap.get(question);
     }
 
     @Override
     public void setAnswer(Question question, Answer answer) {
-
+        answerMap.put(question, answer);
+        //todo persist answer
     }
 
 

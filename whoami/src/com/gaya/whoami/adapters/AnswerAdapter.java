@@ -1,20 +1,13 @@
 package com.gaya.whoami.adapters;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.android.volley.toolbox.NetworkImageView;
-import com.gaya.whoami.ImageLoaderHelpers;
-import com.gaya.whoami.R;
-import com.gaya.whoami.questions.Answer;
-import com.gaya.whoami.questions.Question;
+import android.content.*;
+import android.view.*;
+import android.widget.*;
+import com.android.volley.toolbox.*;
+import com.gaya.whoami.*;
+import com.gaya.whoami.questions.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Lenovo-User on 19/08/2014.
@@ -22,6 +15,9 @@ import java.util.List;
 public class AnswerAdapter extends BaseAdapter {
     final LayoutInflater layoutInflater;
     private final List<Answer> answers = new ArrayList<Answer>();
+
+
+
 
     public void setAnswers(Collection<Answer> answerCollection)
     {
@@ -76,9 +72,22 @@ public class AnswerAdapter extends BaseAdapter {
         final NetworkImageView networkImageView;
 
         AnswerHolder(View view) {
-            view.setTag(this);
 
-            this.view = view;
+
+
+            this.view =view; /*new FrameLayout(view.getContext()){
+                @Override
+                public void setActivated(boolean activated) {
+                    super.setActivated(activated);    //To change body of overridden methods use File | Settings | File Templates.
+                }
+
+                @Override
+                public void refreshDrawableState() {
+                    super.refreshDrawableState();    //To change body of overridden methods use File | Settings | File Templates.
+                }
+            };
+            ((FrameLayout)this.view).addView(view, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);*/
+            this.view.setTag(this);
             textView= (TextView) view.findViewById(R.id.text);
             networkImageView = (NetworkImageView) view.findViewById(R.id.thumb);
         }

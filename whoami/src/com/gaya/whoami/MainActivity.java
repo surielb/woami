@@ -11,7 +11,6 @@ import android.view.*;
 import com.facebook.*;
 import com.facebook.Session.*;
 import com.gaya.whoami.R.*;
-import com.gaya.whoami.adapters.*;
 import com.gaya.whoami.fragments.*;
 
 import java.security.*;

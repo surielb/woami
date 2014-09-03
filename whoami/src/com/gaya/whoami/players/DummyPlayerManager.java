@@ -70,17 +70,17 @@ public class DummyPlayerManager implements PlayerManager {
     @Override
     public void scan() {
         scanning = true;
-        schedule(3);
+        schedule(5);
     }
 
     void schedule(int max) {
         if (!scanning) return;
         int add = random.nextInt(max);
         for (int i = 0; i < add; i++)
-            SafeHandler.postDelayed(addPlayer, random.nextInt(max*10) * 1000);
+            SafeHandler.postDelayed(addPlayer, random.nextInt(2*10) * 1000);
         int remove = random.nextInt(max);
         for (int i = 0; i < remove; i++)
-            SafeHandler.postDelayed(removePlayer, random.nextInt(max*10) * 1000);
+            SafeHandler.postDelayed(removePlayer, random.nextInt(2*10) * 1000);
     }
 
     final Runnable addPlayer = new Runnable() {
