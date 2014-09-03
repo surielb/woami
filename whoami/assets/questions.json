@@ -51,29 +51,29 @@
             ]
         },
         {
-                    "id":"Q_food2",
-                    "title":"blagh vkjhkjhgsd kjgd jd",
+                    "id":"q_leisure",
+                    "title":"what do you do it leisure",
                     "answers":[
 
                         {
-                            "id":2,
-                             "title":"Sushi",
-                             "thumb":"https://cdn1.iconfinder.com/data/icons/all_google_icons_symbols_by_carlosjj-du/128/sushi.png"
+                            "id":1,
+                             "title":"Running",
+                             "thumb":""
                         },
 {
-                            "id":1,
-                            "title":"Pizza",
-                            "thumb":"https://cdn1.iconfinder.com/data/icons/Iconshock-food-sigma-tiny-icons/png/128/pizza_slice_128.png"
+                            "id":2,
+                            "title":"Watch TV",
+                            "thumb":""
                         },
                         {
                             "id":3,
-                            "title":"pasta",
-                            "thumb":"https://cdn1.iconfinder.com/data/icons/cartoon-food/128/Food_512-25.png"
+                            "title":"Sleep",
+                            "thumb":""
                         },
                          {
                             "id":4,
-                            "title":"Salad",
-                            "thumb":"http://img2.timg.co.il/forums/1_148680335.gif"
+                            "title":"Gp to the beach",
+                            "thumb":"http://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Face-sleep.svg/120px-Face-sleep.svg.png"
 
                          }
                     ]
