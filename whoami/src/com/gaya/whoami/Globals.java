@@ -1,11 +1,12 @@
 package com.gaya.whoami;
 
-import android.content.Context;
-import android.support.v4.app.Fragment;
-import com.gaya.whoami.questions.AssetsQuestionManager;
-import com.gaya.whoami.questions.QuestionManager;
+import android.content.*;
+import android.support.v4.app.*;
+import com.gaya.whoami.events.*;
+import com.gaya.whoami.players.*;
+import com.gaya.whoami.questions.*;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.*;
 
 /**
  * Created by Lenovo-User on 19/08/2014.
@@ -13,21 +14,40 @@ import java.lang.reflect.Field;
 public class Globals {
     private static Context appContext;
     private static QuestionManager questionManager;
+    private static IEventManager eventManager;
+    private static PlayerManager playerManager;
 
-    public synchronized static void init(Context context)
-    {
-        if(appContext != null)return;
+    public synchronized static void init(Context context) {
+        if (appContext != null) return;
         appContext = context.getApplicationContext();
         ImageLoaderHelpers.init(context);
     }
-    public synchronized static QuestionManager getQuestionManager(){
-        if(questionManager == null)
-        {
+
+    public synchronized static QuestionManager getQuestionManager() {
+        if (questionManager == null) {
             questionManager = new AssetsQuestionManager(appContext);
         }
         return questionManager;
     }
-    private final static Field childFragmentManager ;
+
+    public static synchronized IEventManager eventManager() {
+        if (eventManager == null)
+            eventManager = new EventManager();
+        return eventManager;
+    }
+
+    public static synchronized PlayerManager getPlayerManager() {
+        if (playerManager == null)
+            try {
+                playerManager = new DummyPlayerManager(appContext);
+            } catch (Exception e) {
+                Logger.e(e);
+            }
+        return playerManager;
+    }
+
+    private final static Field childFragmentManager;
+
     static {
         Field mChildFragmentManager = null;
         try {
@@ -38,7 +58,7 @@ public class Globals {
         } catch (NoSuchFieldException e) {
 
         }
-        childFragmentManager= mChildFragmentManager;
+        childFragmentManager = mChildFragmentManager;
     }
 
     public static void detachFragment(Fragment fragment) {

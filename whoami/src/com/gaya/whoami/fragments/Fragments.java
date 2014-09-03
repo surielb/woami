@@ -18,7 +18,7 @@ public enum Fragments {
     /**
      * The splash (login) screen
      */
-    SPLAH(SplashFragment.class),
+    SPLASH(SplashFragment.class),
     /**
      * The first screen of the app (welcome)
      */

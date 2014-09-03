@@ -62,6 +62,8 @@ public abstract class AskFragment extends Fragment implements QuestionFragment.A
     @Override
     public void onAnswer(Question question, Answer answer) {
 
+        Globals.getQuestionManager().setAnswer(question,answer);
+
         if(hasNext())
             moveNext();
     }
@@ -139,6 +141,8 @@ public abstract class AskFragment extends Fragment implements QuestionFragment.A
         if(questionFragment == null)
             return false;
         questionFragment.setQuestion(question);
+        Answer answer=Globals.getQuestionManager().getAnswer(question);
+        questionFragment.setAnswer(answer);
         validateButtons();
         return question != null;
     }

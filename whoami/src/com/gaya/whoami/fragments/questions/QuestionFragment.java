@@ -57,24 +57,16 @@ public class QuestionFragment extends Fragment {
         gridView = (GridView) view.findViewById(R.id.answers);
 
         gridView.setAdapter(answerAdapter);
+        gridView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                gridView.setSelection(i);
-            }
-        });
-        gridView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemId) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Answer answer =answerAdapter.getItem(position);
-                onAnswerSelected(answer);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
+              //  onAnswerSelected(answer);
             }
         });
+
+
         textView = (TextView) view.findViewById(R.id.question);
 
         //someone may have set the question before we where ready
@@ -100,6 +92,7 @@ public class QuestionFragment extends Fragment {
      * @return
      */
     public boolean setAnswer(Answer answer) {
+        if(gridView==null)return false;
         if(answer == null)
         {
             gridView.setSelection(-1);

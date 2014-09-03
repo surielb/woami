@@ -1,6 +1,5 @@
 package com.gaya.whoami;
 
-import android.bluetooth.BluetoothAdapter;
 import android.content.*;
 import android.content.pm.*;
 import android.content.pm.PackageManager.*;
@@ -9,21 +8,20 @@ import android.os.*;
 import android.support.v4.app.*;
 import android.util.*;
 import android.view.*;
-import android.widget.EditText;
 import com.facebook.*;
 import com.facebook.Session.*;
 import com.gaya.whoami.R.*;
+import com.gaya.whoami.adapters.*;
 import com.gaya.whoami.fragments.*;
 
 import java.security.*;
 
 /**
- * Our main activity tat handles the basic user login and fragment flow
- * Fragments are defined in Fragments
+ * Our main activity tat handles the basic user login and fragment flow Fragments are defined in Fragments
+ *
  * @see com.gaya.whoami.fragments.Fragments
  */
 public class MainActivity extends FragmentActivity {
-
 
 
     public GameSettings gameSettings;
@@ -37,6 +35,7 @@ public class MainActivity extends FragmentActivity {
             onSessionChanged(session, state, exception);
         }
     };//callback used by fb to notify us when the user's login session has changed
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -58,7 +57,6 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         Globals.init(this); //get all the statics that need a context up
-
 
         uiHelper = new UiLifecycleHelper(this, statusCallback);
         uiHelper.onCreate(savedInstanceState);
@@ -110,21 +108,20 @@ public class MainActivity extends FragmentActivity {
     protected void onResumeFragments() {
         super.onResumeFragments();
         Session session = Session.getActiveSession();
-        showFragment(Fragments.SPLAH, false);
         if (session != null && session.isOpened()) {
             // if the session is already open, try to show the selection fragment
             showFragment(Fragments.WELCOME, false);
 
         } else {
             // otherwise present the splash screen and ask the user to login, unless the user explicitly skipped.
-            showFragment(Fragments.SPLAH, false);
+            showFragment(Fragments.SPLASH, false);
         }
 
     }
 
     /**
-     * This is called when the facebook session is modified (login/logout) and we decide if to show the
-     * main fragment or the splash
+     * This is called when the facebook session is modified (login/logout) and we decide if to show the main fragment or
+     * the splash
      */
     private void onSessionChanged(Session session, SessionState state, Exception exception) {
         if (isResumed) {
@@ -135,11 +132,11 @@ public class MainActivity extends FragmentActivity {
             }
             // check for the OPENED state instead of session.isOpened() since for the
             // OPENED_TOKEN_UPDATED state, the welcome fragment should already be showing.
-            //showFragment(Fragments.SPLAH, false);
+            //showFragment(Fragments.SPLASH, false);
             if (state.equals(SessionState.OPENED)) {
                 showFragment(Fragments.WELCOME, false);
             } else if (state.isClosed()) {
-                showFragment(Fragments.SPLAH, false);
+                showFragment(Fragments.SPLASH, false);
             }
         }
 
@@ -148,7 +145,8 @@ public class MainActivity extends FragmentActivity {
 
     /**
      * helper function to display the given fragment
-     * @param fragment the fragment to display
+     *
+     * @param fragment       the fragment to display
      * @param addToBackStack should this fragment be added to the BackStack
      */
     public void showFragment(Fragments fragment, boolean addToBackStack) {
@@ -178,7 +176,6 @@ public class MainActivity extends FragmentActivity {
 
         }
     }
-
 
 
 }

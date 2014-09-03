@@ -21,7 +21,6 @@ public class WelcomeFragment extends FacebookFragment {
         setHasOptionsMenu(true);
     }
 
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.main_menu, menu);
@@ -46,7 +45,6 @@ public class WelcomeFragment extends FacebookFragment {
                     .replace(id.fragment_container, Fragments.ABOUT_ME.get(getActivity()))
                     .commit();
     }
-
 
     protected void updateUI() {
         if (!isAdded())

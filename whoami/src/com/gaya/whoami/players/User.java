@@ -8,7 +8,7 @@ import java.util.Collection;
 /**
  * Created by Lenovo-User on 12/08/2014.
  */
-public interface User {
+public interface User extends Player {
     Collection<Question> getAnsweredQuestions();
     Answer getAnswer(Question question);
 }

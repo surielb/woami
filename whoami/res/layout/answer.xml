@@ -5,6 +5,8 @@
               android:padding="10dip"
               android:layout_gravity="center"
               android:orientation="vertical"
+               android:duplicateParentState="true"
+              android:background="@drawable/answer_bg"
               android:layout_height="wrap_content">
     <com.android.volley.toolbox.NetworkImageView
             android:layout_height="80dip"
