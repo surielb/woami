@@ -4,7 +4,7 @@ import android.os.*;
 import com.gaya.whoami.*;
 
 /**
- * @author suriel
+ * @author gaya
  *         Date: 1/14/14
  *         Time: 1:12 PM
  */

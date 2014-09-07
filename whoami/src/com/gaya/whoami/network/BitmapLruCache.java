@@ -5,7 +5,7 @@ import android.support.v4.util.LruCache;
 import com.android.volley.toolbox.ImageLoader;
 
 /**
- * @author suriel
+ * @author gaya
  *         Date: 11/25/13
  *         Time: 4:00 PM
  */

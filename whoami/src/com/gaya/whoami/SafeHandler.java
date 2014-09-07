@@ -6,7 +6,7 @@ import android.os.Looper;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author suriel
+ * @author gaya
  *         Date: 10/15/13
  *         Time: 1:37 PM
  */

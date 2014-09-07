@@ -11,6 +11,7 @@ import android.view.*;
 import com.facebook.*;
 import com.facebook.Session.*;
 import com.gaya.whoami.R.*;
+import com.gaya.whoami.adapters.PlayersAdapter;
 import com.gaya.whoami.fragments.*;
 
 import java.security.*;
@@ -34,7 +35,7 @@ public class MainActivity extends FragmentActivity {
             onSessionChanged(session, state, exception);
         }
     };//callback used by fb to notify us when the user's login session has changed
-
+private PlayersAdapter playersAdapter;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -63,6 +64,8 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.main);
 
         gameSettings = new GameSettings();
+        playersAdapter=new PlayersAdapter(this);
+        Globals.getPlayerManager().scan();
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.gaya.whoami;
 
 /**
- * @author suriel
+ * @author gaya
  *         Date: 10/8/13
  *         Time: 2:48 PM
  */

@@ -2,7 +2,7 @@ package com.gaya.whoami.threading;
 
 /**
  * Implementation of a java Manual reset event
- * @author suriel
+ * @author gaya
  *         Date: 2/9/14
  *         Time: 11:46 PM
  */

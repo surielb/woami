@@ -2,7 +2,7 @@ package com.gaya.whoami.events;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Suriel
+ * User: gaya
  * Date: 1/17/12
  * Time: 1:22 PM
  * To change this template use File | Settings | File Templates.

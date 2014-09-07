@@ -10,7 +10,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Created with IntelliJ IDEA. User: Suriel Date: 9/3/14 Time: 10:09 PM To change this template use File | Settings |
+ * Created with IntelliJ IDEA. User: gaya Date: 9/3/14 Time: 10:09 PM To change this template use File | Settings |
  * File Templates.
  */
 public class DummyPlayerManager implements PlayerManager {
@@ -66,9 +66,9 @@ public class DummyPlayerManager implements PlayerManager {
     public void disconnect(Player player) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
-
     @Override
     public void scan() {
+
         scanning = true;
         schedule(5);
     }
