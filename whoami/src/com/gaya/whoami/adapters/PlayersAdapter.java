@@ -102,7 +102,7 @@ public class PlayersAdapter extends BaseAdapter implements PlayerPresenceListene
 
         PlayerHolder setItem(Player answer) {
             textView.setText(answer.getName());
-            networkImageView.setImageUrl(answer.getImageUrl(), ImageLoaderHelpers.getImageLoader());
+            //networkImageView.setImageUrl(answer.getImageUrl(), ImageLoaderHelpers.getImageLoader());
             return this;
         }
     }

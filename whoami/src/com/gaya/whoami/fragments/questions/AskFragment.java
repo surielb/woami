@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.gaya.whoami.Globals;
 import com.gaya.whoami.R;
+import com.gaya.whoami.fragments.FragmentUsers;
 import com.gaya.whoami.questions.Answer;
 import com.gaya.whoami.questions.Question;
 
@@ -66,6 +67,16 @@ public abstract class AskFragment extends Fragment implements QuestionFragment.A
 
         if(hasNext())
             moveNext();
+        else {
+
+            FragmentUsers fragmentUsers = new FragmentUsers();
+            getFragmentManager().beginTransaction().replace(R.id.fragment_container,fragmentUsers).commit();
+
+
+
+
+
+        }
     }
 
     /**
