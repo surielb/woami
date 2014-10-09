@@ -1,11 +1,14 @@
 package com.gaya.whoami.fragments.questions;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.*;
 import android.support.v4.app.*;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import com.gaya.whoami.*;
 import com.gaya.whoami.adapters.*;
+import com.gaya.whoami.database.FeedReaderDbHelper;
 import com.gaya.whoami.questions.*;
 
 /**
@@ -57,6 +60,19 @@ public class QuestionFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Answer answer =answerAdapter.getItem(position);
                 //gridView.setItemChecked(position,true);
+
+                FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getActivity());
+                //Log.d("","TEST");
+
+                SQLiteDatabase dbs = mDbHelper.getWritableDatabase();
+
+                mDbHelper.save(dbs,question.getId(),position);
+
+
+                SQLiteDatabase dbr = mDbHelper.getReadableDatabase();
+
+                mDbHelper.show(dbr);
+
                 onAnswerSelected(answer);
             }
         });

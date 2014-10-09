@@ -100,9 +100,9 @@ public class PlayersAdapter extends BaseAdapter implements PlayerPresenceListene
             networkImageView = (NetworkImageView) view.findViewById(R.id.thumb);
         }
 
-        PlayerHolder setItem(Player answer) {
-            textView.setText(answer.getName());
-            //networkImageView.setImageUrl(answer.getImageUrl(), ImageLoaderHelpers.getImageLoader());
+        PlayerHolder setItem(Player player) {
+            textView.setText(player.getName());
+            networkImageView.setImageUrl(player.getImageUrl(), ImageLoaderHelpers.getImageLoader());
             return this;
         }
     }

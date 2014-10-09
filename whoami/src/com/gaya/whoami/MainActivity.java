@@ -35,7 +35,7 @@ public class MainActivity extends FragmentActivity {
             onSessionChanged(session, state, exception);
         }
     };//callback used by fb to notify us when the user's login session has changed
-private PlayersAdapter playersAdapter;
+//private PlayersAdapter playersAdapter;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -64,8 +64,8 @@ private PlayersAdapter playersAdapter;
         setContentView(R.layout.main);
 
         gameSettings = new GameSettings();
-        playersAdapter=new PlayersAdapter(this);
-        Globals.getPlayerManager().scan();
+//        playersAdapter=new PlayersAdapter(this);
+  //      Globals.getPlayerManager().scan();
     }
 
     @Override

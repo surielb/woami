@@ -40,12 +40,19 @@ public abstract class JSONQuestionManager implements QuestionManager {
 
     @Override
     public Answer getAnswer(Question question) {
+        String  answerId =null; //=got from db
+        for(Answer answer:question.getAnswers())
+        {
+            if(answer.getId().equals(answerId))
+                return answer;
+        }
         return answerMap.get(question);
     }
 
     @Override
     public void setAnswer(Question question, Answer answer) {
         answerMap.put(question, answer);
+
         //todo persist answer
     }
 

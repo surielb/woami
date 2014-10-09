@@ -31,7 +31,7 @@ public class DummyPlayerManager implements PlayerManager {
                     JSONObject data = (JSONObject) item;
                     final String name = data.optString("name");
                     final String id = data.optString("id");
-                    final String imageUrl = String.format("https://graph.facebook.com/{%s}/picture?type=normal", id);
+                    final String imageUrl = String.format("https://graph.facebook.com/%s/picture?type=normal", id);
                     return new Player() {
                         @Override
                         public String getId() {
@@ -68,8 +68,11 @@ public class DummyPlayerManager implements PlayerManager {
     }
     @Override
     public void scan() {
-
+if(scanning)return;
         scanning = true;
+        for (int i=0;i<3;i++)
+            addPlayer.run();
+
         schedule(5);
     }
 
@@ -80,7 +83,7 @@ public class DummyPlayerManager implements PlayerManager {
             SafeHandler.postDelayed(addPlayer, random.nextInt(2*10) * 1000);
         int remove = random.nextInt(max);
         for (int i = 0; i < remove; i++)
-            SafeHandler.postDelayed(removePlayer, random.nextInt(2*10) * 1000);
+            SafeHandler.postDelayed(removePlayer, random.nextInt(3*10) * 1000);
     }
 
     final Runnable addPlayer = new Runnable() {

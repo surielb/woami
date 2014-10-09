@@ -10,10 +10,11 @@
                   android:layout_height="50dip"
                   android:layout_width="50dip"
                   android:layout_marginRight="10dip"
-                  android:id="@+id/tumb"/>
+                  android:id="@+id/thumb"/>
     <TextView android:layout_height="wrap_content"
               android:layout_width="match_parent"
               android:id="@+id/text"
+              android:textSize="18sp"
               android:text="Name"/>
 
 </LinearLayout>
