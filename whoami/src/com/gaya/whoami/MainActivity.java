@@ -4,6 +4,7 @@ import android.content.*;
 import android.content.pm.*;
 import android.content.pm.PackageManager.*;
 import android.content.pm.Signature;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.*;
 import android.support.v4.app.*;
 import android.util.*;
@@ -12,6 +13,7 @@ import com.facebook.*;
 import com.facebook.Session.*;
 import com.gaya.whoami.R.*;
 import com.gaya.whoami.adapters.PlayersAdapter;
+import com.gaya.whoami.database.FeedReaderDbHelper;
 import com.gaya.whoami.fragments.*;
 
 import java.security.*;
@@ -57,6 +59,10 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         Globals.init(this); //get all the statics that need a context up
+
+        FeedReaderDbHelper helper = new FeedReaderDbHelper(this);
+        SQLiteDatabase dbs = helper.getWritableDatabase();
+        helper.deleteDataBase(dbs);
 
         uiHelper = new UiLifecycleHelper(this, statusCallback);
         uiHelper.onCreate(savedInstanceState);
