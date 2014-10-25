@@ -12,8 +12,7 @@ import android.view.*;
 import com.facebook.*;
 import com.facebook.Session.*;
 import com.gaya.whoami.R.*;
-import com.gaya.whoami.adapters.PlayersAdapter;
-import com.gaya.whoami.database.FeedReaderDbHelper;
+import com.gaya.whoami.database.AnswersDbHelper;
 import com.gaya.whoami.fragments.*;
 
 import java.security.*;
@@ -60,9 +59,7 @@ public class MainActivity extends FragmentActivity {
 
         Globals.init(this); //get all the statics that need a context up
 
-        FeedReaderDbHelper helper = new FeedReaderDbHelper(this);
-        SQLiteDatabase dbs = helper.getWritableDatabase();
-        helper.deleteDataBase(dbs);
+        //todo: gaya - no db init here, QuestionManager is in charge of DB
 
         uiHelper = new UiLifecycleHelper(this, statusCallback);
         uiHelper.onCreate(savedInstanceState);

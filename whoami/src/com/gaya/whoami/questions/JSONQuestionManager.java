@@ -2,6 +2,7 @@ package com.gaya.whoami.questions;
 
 import android.content.Context;
 import com.gaya.whoami.JSONHelpers;
+import com.gaya.whoami.database.AnswersDbHelper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -13,9 +14,12 @@ import java.util.*;
 public abstract class JSONQuestionManager implements QuestionManager {
     private List<Question> questions = Collections.EMPTY_LIST;
     private final Context context;
+    final AnswersDbHelper dbHelper;
+
 
     protected JSONQuestionManager(Context context) {
         this.context = context;
+        dbHelper = new AnswersDbHelper(context);
     }
 
     protected void loadQuestions(JSONObject jsonObject) {
@@ -40,19 +44,28 @@ public abstract class JSONQuestionManager implements QuestionManager {
 
     @Override
     public Answer getAnswer(Question question) {
-        String  answerId =null; //=got from db
-        for(Answer answer:question.getAnswers())
-        {
-            if(answer.getId().equals(answerId))
-                return answer;
+        Answer answer = answerMap.get(question);
+        if (answer != null)
+            return answer;
+
+
+        String answerId = dbHelper.query(question.getId());
+        if (answerId == null)
+            return null;
+        for (Answer ans : question.getAnswers()) {
+            if (ans.getId().equals(answerId)) {
+                //update cache
+                answerMap.put(question, ans);
+                return ans;
+            }
         }
-        return answerMap.get(question);
+        return null;
     }
 
     @Override
     public void setAnswer(Question question, Answer answer) {
         answerMap.put(question, answer);
-
+        dbHelper.save(question.getId(),answer.getId());
         //todo persist answer
     }
 
