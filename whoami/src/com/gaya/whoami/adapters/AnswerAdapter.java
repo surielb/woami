@@ -93,8 +93,8 @@ public class AnswerAdapter extends BaseAdapter {
         }
 
         AnswerHolder setItem(Answer answer){
-            textView.setText(answer.getTitle());
-            networkImageView.setImageUrl(answer.getImageUrl(), ImageLoaderHelpers.getImageLoader());
+            textView.setText(answer.getText());
+            networkImageView.setImageUrl(answer.getImage(), ImageLoaderHelpers.getImageLoader());
             return this;
         }
     }

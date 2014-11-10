@@ -1,35 +1,47 @@
 package com.gaya.whoami.fragments;
 
-import android.app.*;
+import android.app.Activity;
 import android.support.v4.app.Fragment;
-import com.facebook.widget.*;
-import com.gaya.whoami.fragments.questions.AboutMeFragment;
 
-import java.util.*;
+import java.util.Map;
+import java.util.WeakHashMap;
 
 /**
  * Helper enum that holds a singleton fragment for each activity
  */
 public enum Fragments {
-    STARTGAME(StartGameFragmant.class),
-
-    CREATEGAME(CreateGameFragment.class),
 
     /**
      * The splash (login) screen
      */
     SPLASH(SplashFragment.class),
     /**
-     * The first screen of the app (welcome)
+     * The first screen of the app (Profile)
      */
-    WELCOME(WelcomeFragment.class),
+    PROFILE(ProfileFragment.class),
+    /**
+     * Search for players fragment
+     */
+    FIND_PLAYERS(FindPlayersFragment.class),
+
     /**
      * the settings screen
      */
-    SETTINGS(UserSettingsFragment.class),
+    SETTINGS(SettingsFragment.class),
 
-    ABOUT_ME(AboutMeFragment.class),
+    PLAY(GameFragment.class),
     ;
+
+    public static Fragments getActiveFragment(Fragment fragment)
+    {
+        if (fragment instanceof SplashFragment)
+            return Fragments.SPLASH;
+        if (fragment instanceof ProfileFragment)
+            return Fragments.PROFILE;
+        if (fragment instanceof FindPlayersFragment)
+            return Fragments.FIND_PLAYERS;
+        return null;
+    }
 
     Fragments(Class<? extends Fragment> type) {
         this.type = type;

@@ -1,14 +1,18 @@
 package com.gaya.whoami.fragments.questions;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.os.*;
-import android.support.v4.app.*;
-import android.view.*;
-import android.widget.*;
-import com.gaya.whoami.*;
-import com.gaya.whoami.adapters.*;
-import com.gaya.whoami.database.AnswersDbHelper;
-import com.gaya.whoami.questions.*;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.TextView;
+import com.gaya.whoami.Globals;
+import com.gaya.whoami.R;
+import com.gaya.whoami.adapters.AnswerAdapter;
+import com.gaya.whoami.questions.Answer;
+import com.gaya.whoami.questions.Question;
 
 /**
  * Created by Lenovo-User on 19/08/2014.
@@ -20,6 +24,17 @@ public class QuestionFragment extends Fragment {
     private AnswerAdapter answerAdapter;
     private AnswerSelectedListener answerSelectedListener;
 
+    private String noun ="you";
+
+    public String getNoun() {
+        return noun;
+    }
+
+    public QuestionFragment setNoun(String noun) {
+        this.noun = noun;
+        return this;
+    }
+
     public Question getQuestion() {
         return question;
     }
@@ -30,7 +45,7 @@ public class QuestionFragment extends Fragment {
             //gridView.setSelection(-1);
             gridView.setItemChecked(gridView.getCheckedItemPosition(),false);
             if (question != null) {
-                textView.setText(question.getText());
+                textView.setText(String.format(question.getText(),noun));
                 answerAdapter.setAnswers(question.getAnswers());
             } else {
                 textView.setText(null);

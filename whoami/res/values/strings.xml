@@ -6,4 +6,15 @@
     <string name="button_create_game">Create Game</string>
     <string name="button_join_game">Join Game</string>
     <string name="set_time">Set Time</string>
+    <string name="parse_app_id">1JREHdi3sAGFiuuUSS1gA4gwOozYckW1qZW3klN2</string>
+    <string name="parse_app_key">9hL9C41hdPxbuThlyGs8ATxXDH7XZ1ErKwhJyl6S</string>
+
+    <string name="connected_with">Connected with %1$s</string>
+    <string name="drawer_open">Open Navigation</string>
+    <string name="drawer_close">Close Navigation</string>
+    <string name="action_answer">Answer questions</string>
+    <string name="action_find">Find people</string>
+    <string name="action_signout">Sign out</string>
+    <string name="connect_link"><u>Click here to connect</u></string>
+    <string name="question_number">%1$s of %2$s</string>
 </resources>

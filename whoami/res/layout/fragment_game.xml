@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:padding="5dip"
+                  android:orientation="horizontal">
+        <com.android.volley.toolbox.NetworkImageView android:layout_width="60dip"
+                                                     android:layout_height="60dip"
+                                                     android:id="@+id/profile_pic"/>
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:paddingLeft="10dip"
+                  android:gravity="center_vertical"
+                  android:textSize="24dip"
+                  android:layout_weight="1"
+                  android:id="@+id/profile_name"
+                  android:text="Welcome stranger"/>
+        <com.gaya.whoami.widget.TimerView android:layout_width="30dip" android:layout_height="wrap_content"
+                                          android:layout_gravity="center"
+                                          android:gravity="center"
+                                          android:layout_margin="10dip"
+                                          android:textSize="26sp"
+                                          android:id="@+id/timer"
+                                          android:text="30"/>
+
+    </LinearLayout>
+    <ViewAnimator android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:inAnimation="@anim/abc_fade_in"
+                  android:outAnimation="@anim/abc_fade_out"
+                  android:id="@+id/viewAnimator"
+            >
+
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:orientation="vertical">
+
+
+            <FrameLayout android:id="@+id/fragment_container" android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         android:layout_weight="1">
+
+            </FrameLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:gravity="center"
+                          android:padding="5dip"
+                    >
+                <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Back"
+                        android:id="@+id/prev"
+                        android:layout_marginRight="20dip"
+
+                        />
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/questionNumber"
+                          android:text="0"
+                          android:layout_gravity="center"
+                          android:textSize="20sp"
+                        />
+                <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Skip"
+                        android:id="@+id/next"
+                        android:layout_marginLeft="20dip"
+                        />
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/complete" android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:gravity="center"
+                      android:layout_weight="1">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="Yay!, its seems you know Them pretty well"
+                      android:textSize="25sp"
+                      android:textColor="#00aa00"
+                      android:layout_gravity="center_horizontal"
+                      android:gravity="center"
+                      android:layout_marginBottom="10dip"
+                    />
+            <com.android.volley.toolbox.NetworkImageView android:layout_width="100dip"
+                                                         android:layout_height="100dip"
+                                                         android:background="#123"
+                                                         android:layout_marginBottom="10dip"
+                                                         android:id="@+id/playerImage"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="24dip"
+                      android:id="@+id/playerName"
+                      android:text="Sambo bambo"/>
+            <Button android:layout_width="wrap_content"
+                    android:background="@drawable/com_facebook_loginbutton_silver"
+                    android:padding="10dip"
+                    android:layout_height="wrap_content"
+                    android:textSize="26dip"
+                    android:id="@+id/link"
+                    android:textColor="#0000aa"
+                    android:text="@string/connect_link"/>
+
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="50dip"
+                    android:layout_gravity="center|bottom"
+                    android:id="@+id/playAgain"
+                    android:text="Play again"
+                    />
+
+        </LinearLayout>
+        <LinearLayout android:id="@+id/noGood" android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:gravity="center"
+                      android:layout_weight="1">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:text="Oops, not much luck there"
+                      android:textSize="25sp"
+                      android:textColor="#aa0000"
+                      android:layout_gravity="center_horizontal"
+                      android:gravity="center"
+                      android:layout_marginBottom="10dip"
+                    />
+
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="50dip"
+                    android:layout_gravity="center|bottom"
+                    android:id="@+id/playAgain"
+                    android:text="Play again"
+                    />
+
+        </LinearLayout>
+    </ViewAnimator>
+
+
+</LinearLayout>

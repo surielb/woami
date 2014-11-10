@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="settings_bg">#ffedf0f4</color>
+    <color name="settings_item_bg">#fff</color>
+    <color name="settings_item_bg_pressed">#ffc0d9ff</color>
+    <color name="settings_item_signout">#ffea280e</color>
+    <color name="settings_item_text">#ff777777</color>
+    <color name="settings_item_text_light">#ffacacac</color>
+
+    <color name="settings_item_border">#ccc</color>
+
+    <color name="icon_border">#fff</color>
+
     <color name="main">#ffdddddd</color>
 
     <color name="main_old">#ff82c669</color>
     <color name="ab_background">#ff5e9650</color>
+
+    <color name="ucolor_1">#f5b817</color>
+    <color name="ucolor_2">#ec7824</color>
+    <color name="ucolor_3">#d14227</color>
+    <color name="ucolor_4">#0a77b3</color>
 </resources>

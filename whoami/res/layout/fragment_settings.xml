@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/settings_bg"
+              android:layout_width="350dp"
+
+              android:layout_height="match_parent">
+
+
+
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="#fff"
+                  android:padding="10dip"
+                  android:id="@+id/social"
+                  android:gravity="center_horizontal"
+                  android:orientation="vertical">
+        <com.gaya.whoami.widget.ProcessImageView android:layout_height="60dip"
+                                                    android:layout_width="60dip"
+
+                                                    android:scaleType="centerCrop"
+                                                    android:id="@+id/profile_image"/>
+        <LinearLayout android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:paddingLeft="20dip"
+                      android:layout_weight="1"
+                      android:paddingRight="10dip"
+                      android:gravity="center_horizontal"
+                      android:layout_width="wrap_content">
+            <TextView android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:singleLine="true"
+                      android:textSize="25sp"
+                      android:id="@+id/profile_name"
+                      android:textColor="@color/settings_item_text"
+                      android:text="User Name"/>
+
+            <TextView android:layout_height="wrap_content"
+                      android:layout_width="wrap_content"
+                      android:singleLine="true"
+                      android:paddingTop="5dip"
+                      android:textSize="18sp"
+                      android:id="@+id/profile_type"
+                      android:textColor="@color/settings_item_text_light"
+                      android:text="@string/connected_with"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+<LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dip"
+        >
+
+
+
+
+    <Button android:layout_width="match_parent" android:layout_height="@dimen/settings_action_height"
+            android:layout_marginTop="20dip"
+            android:gravity="start|center_vertical"
+            android:id="@+id/answer"
+
+            android:paddingLeft="20dip"
+            android:drawablePadding="10dip"
+            android:drawableLeft="@drawable/ic_action_help"
+            android:drawableRight="@drawable/ic_action_next_item"
+            android:textSize="19sp"
+            android:textColor="@color/settings_item_text"
+            android:text="@string/action_answer"
+            android:background="@drawable/settings_item"
+            />
+
+    <Button android:layout_width="match_parent" android:layout_height="@dimen/settings_action_height"
+            android:layout_marginTop="20dip"
+            android:gravity="start|center_vertical"
+            android:id="@+id/find"
+
+            android:paddingLeft="20dip"
+            android:drawablePadding="10dip"
+            android:drawableLeft="@drawable/ic_action_group"
+            android:drawableRight="@drawable/ic_action_next_item"
+            android:textSize="19sp"
+            android:textColor="@color/settings_item_text"
+            android:text="@string/action_find"
+            android:background="@drawable/settings_item"
+            />
+
+    <Button android:layout_width="match_parent" android:layout_height="@dimen/settings_action_height"
+            android:layout_marginTop="20dip"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+
+            android:paddingLeft="20dip"
+            android:drawablePadding="10dip"
+
+            android:textSize="19sp"
+            android:textColor="@color/settings_item_signout"
+            android:id="@+id/signout"
+            android:text="@string/action_signout"
+            android:background="@drawable/settings_item"
+            />
+
+</LinearLayout>
+
+
+</LinearLayout>
