@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/facebook/facebook.iml" filepath="$PROJECT_DIR$/facebook/facebook.iml" />
       <module fileurl="file://C:/Program Files (x86)/Android/android-sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" filepath="C:/Program Files (x86)/Android/android-sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" />
-      <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" />
       <module fileurl="file://$PROJECT_DIR$/whoami/whoami.iml" filepath="$PROJECT_DIR$/whoami/whoami.iml" />
     </modules>
   </component>
