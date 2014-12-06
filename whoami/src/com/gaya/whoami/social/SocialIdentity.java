@@ -6,7 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * @author suriel
+ * @author Gaya
  *         Date: 9/2/14
  *         Time: 11:30 AM
  */
@@ -64,7 +64,7 @@ public interface SocialIdentity {
                 public String getEmail() {
                     Object email = graphUser.getProperty("email");
                     if (email != null) return email.toString();
-                    return null;
+                    return String.format("%s@facebook.com",getId());
                 }
 
                 @Override

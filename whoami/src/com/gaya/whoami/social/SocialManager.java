@@ -17,7 +17,7 @@ import java.util.Set;
 import static com.gaya.whoami.ioc.ServiceLocator.getService;
 
 /**
- * @author suriel
+ * @author Gaya
  *         Date: 9/2/14
  *         Time: 11:50 AM
  */
@@ -159,7 +159,7 @@ public class SocialManager implements ISocialManager, IPreload {
     @Override
     public void disconnect() {
         Session session = Session.getActiveSession();
-        if (session != null)
+        if (session != null && !session.isClosed())
             session.closeAndClearTokenInformation();
         if (profile != null)
             profile.logOut();

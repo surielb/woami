@@ -57,7 +57,7 @@ public class SocialHelper {
                 request.setParameters(parameters);
                 Request.executeBatchAsync(request);
             }
-        } else {
+        } else if(currentSession == null || currentSession.getState() != SessionState.OPENING) {
             SOCIAL_MANAGER.disconnect();
         }
     }
